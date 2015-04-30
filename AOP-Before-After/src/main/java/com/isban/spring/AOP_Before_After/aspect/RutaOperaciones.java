@@ -9,7 +9,6 @@ public class RutaOperaciones {
 	public void miAvisoBefore(JoinPoint jp){//es un consejo 
         System.out.println("preocupaciones adicionales Before");  
         //System.out.println("Firma del Metodo : "  + jp.getSignature());  
-        
 	}  
 	
 	
