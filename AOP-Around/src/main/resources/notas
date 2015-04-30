@@ -1,0 +1,9 @@
+Ejemplo de Around
+
+
+Configurando en spring-context el atributo "expression" podemos especificar que lance
+la funcionalidad transversal (RutaOperaciones) 
+solo para uno de ellos 
+--> expression="execution(* com.isban.spring.AOP_Throwing.bean.Cliente.*Name(..))"
+o para ambos
+--> expression="execution(* com.isban.spring.AOP_Throwing.bean.Cliente.*(..))"
