@@ -1,0 +1,25 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
+
+<aop:aspectj-autoproxy />
+<!-- Declaramos el Bean con los metodos Implementados -->
+<bean id="operacion" class="com.isban.spring.AOP_Throwing.bean.OperacionImp">   </bean>
+<bean id="cliente" class="com.isban.spring.AOP_Throwing.bean.ClienteImp">   </bean>  
+<!-- Declaramos el Bean correspondiente a el Aspecto -->
+<bean id="rutaAspecto" class="com.isban.spring.AOP_Throwing.aspect.RutaOperaciones"></bean>  
+          
+<aop:config>  
+  <aop:aspect id="miaspecto" ref="rutaAspecto" >  
+     <!-- @afterThrowing -->  
+     <!-- <aop:pointcut id="puntoCorte" expression="execution(* com.isban.spring.AOP_Throwing.bean.Cliente.*(..))" />  -->
+     <aop:pointcut id="puntoCorte" expression="execution(* com.isban.spring.AOP_Throwing.bean.Cliente.*Anyo(..))" />
+	<aop:after-throwing method="miAviso" throwing="error" pointcut-ref="puntoCorte"/>
+  </aop:aspect>  
+</aop:config>  
+
+</beans>
